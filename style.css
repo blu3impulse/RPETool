@@ -1,0 +1,13 @@
+h1{
+  color: aliceblue;
+}
+
+body{
+  background: linear-gradient(30deg, blue, maroon);
+  background-attachment: fixed;
+  height: 100%;
+}
+
+section{
+  color: white;
+}
