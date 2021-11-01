@@ -3,32 +3,58 @@
   <h1>
   This is an RPE calculator. (But it only does 1RM right now)
   </h1>  
-  <link href="style.css" type="text/css" rel="stylesheet">
+  <!--<link href="style.css" type="text/css" rel="stylesheet">-->
 </header>
 <main>
-  <section>
-    <br>
-    <input type="number" name="weight" id="weight" required min="0">
-    <label for="weight">Weight(lbs)</label>
-    <input type="number" name="reps" id="reps" required min="0">
-    <label for="reps"># of Reps</label>
-    <select type="number" name="rpe" id="rpe">
-      <option value ="6">6</option>
-      <option value ="6.5">6.5</option>
-      <option value ="7">7</option>
-      <option value ="7.5">7.5</option>
-      <option value ="8">8</option>
-      <option value ="8.5">8.5</option>
-      <option value ="9">9</option>
-      <option value ="9.5">9.5</option>
-      <option value ="10">10</option>
-    </select>
-    <br><br>
-    <button type="button" onClick="calculateE1RM()">Calculate</button>
-    <button type="button" onClick="clearForm()">Clear</button>
-  </section>
-  
-  <section>
-    <p>E1RM: <a id="e1rm"></a></p>
-  </section>
+    <form id="input">
+        <br>
+        <input type="number" name="weight" id="weight" pattern="[0-9]*">
+        <label for="weight">Weight(lbs)</label>
+        <input type="number" name="reps" id="reps" pattern="[0-9]*">
+        <label for="reps"># of Reps</label>
+        <select type="number" name="rpe" id="rpe">
+            <option value="6">6</option>
+            <option value="6.5">6.5</option>
+            <option value="7">7</option>
+            <option value="7.5">7.5</option>
+            <option value="8">8</option>
+            <option value="8.5">8.5</option>
+            <option value="9">9</option>
+            <option value="9.5">9.5</option>
+            <option value="10">10</option>
+        </select>
+        <br><br>
+        <button type="button" onClick="calculateE1RM()">Calculate</button>
+        <button type="reset" onClick="clearForm()">Reset</button>
+    </form>
+
+    <section id="calculations" hidden>
+        <p>E1RM: <a id="e1rm"></a></p>
+        <form>
+            <a> # of Reps</a>
+            <input type="radio" value="1" id="rep1" checked /><label for="rep1">1</label>
+            <input type="radio" value="2" id="rep2" /><label for="rep2">2</label>
+            <input type="radio" value="3" id="rep3" /><label for="rep3">3</label>
+            <input type="radio" value="4" id="rep4" /><label for="rep4">4</label>
+            <input type="radio" value="5" id="rep5" /><label for="rep5">5</label>
+            <input type="radio" value="6" id="rep6" /><label for="rep6">6</label>
+            <input type="radio" value="7" id="rep7" /><label for="rep7">7</label>
+            <input type="radio" value="8" id="rep8" /><label for="rep8">8</label>
+            <input type="radio" value="9" id="rep9" /><label for="rep9">9</label>
+            <input type="radio" value="10" id="rep10" /><label for="rep10">10</label>
+            <input type="radio" value="11" id="rep11" /><label for="rep11">11</label>
+            <input type="radio" value="12" id="rep12" /><label for="rep12">12</label>
+        </form>
+
+        <div class="row">
+            <hr>
+            <div class="col"><h1>RPE</h1></div>
+            <div class="col"><h1>% of 1RM</h1></div>
+            <div class="col"><h1>Load</h1></div>
+            <hr>
+        </div>
+
+    </section>
+
+
 </main>
