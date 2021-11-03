@@ -1,11 +1,13 @@
-<script src="index.js"></script>
-<header>
-  <h1>
-  This is an RPE calculator. (But it only does 1RM right now)
-  </h1>  
-  <!--<link href="style.css" type="text/css" rel="stylesheet">-->
-</header>
-<main>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        This is an RPE calculator. (But it only does 1RM right now)
+    </title>
+    <!--<link href="style.css" type="text/css" rel="stylesheet">-->
+</head>
+<body>
+    <h1> RPE Calculator</h1>
     <form id="input">
         <br>
         <input type="number" name="weight" id="weight" pattern="[0-9]*">
@@ -29,32 +31,86 @@
     </form>
 
     <section id="calculations" hidden>
-        <p>E1RM: <a id="e1rm"></a></p>
-        <form>
-            <a> # of Reps</a>
-            <input type="radio" value="1" id="rep1" checked /><label for="rep1">1</label>
-            <input type="radio" value="2" id="rep2" /><label for="rep2">2</label>
-            <input type="radio" value="3" id="rep3" /><label for="rep3">3</label>
-            <input type="radio" value="4" id="rep4" /><label for="rep4">4</label>
-            <input type="radio" value="5" id="rep5" /><label for="rep5">5</label>
-            <input type="radio" value="6" id="rep6" /><label for="rep6">6</label>
-            <input type="radio" value="7" id="rep7" /><label for="rep7">7</label>
-            <input type="radio" value="8" id="rep8" /><label for="rep8">8</label>
-            <input type="radio" value="9" id="rep9" /><label for="rep9">9</label>
-            <input type="radio" value="10" id="rep10" /><label for="rep10">10</label>
-            <input type="radio" value="11" id="rep11" /><label for="rep11">11</label>
-            <input type="radio" value="12" id="rep12" /><label for="rep12">12</label>
+        <!--test: <p id="test"></p>-->
+        E1RM: <span id="e1rm"></span>
+        <p> # of Reps</p>
+        <form id="repform">
+            <input type="radio" name="numofreps" value="1" id="rep1" checked="checked" /><label for="rep1">1</label>
+            <input type="radio" name="numofreps" value="2" id="rep2" /><label for="rep2">2</label>
+            <input type="radio" name="numofreps" value="3" id="rep3" /><label for="rep3">3</label>
+            <input type="radio" name="numofreps" value="4" id="rep4" /><label for="rep4">4</label>
+            <input type="radio" name="numofreps" value="5" id="rep5" /><label for="rep5">5</label>
+            <input type="radio" name="numofreps" value="6" id="rep6" /><label for="rep6">6</label>
+            <input type="radio" name="numofreps" value="7" id="rep7" /><label for="rep7">7</label>
+            <input type="radio" name="numofreps" value="8" id="rep8" /><label for="rep8">8</label>
+            <input type="radio" name="numofreps" value="9" id="rep9" /><label for="rep9">9</label>
+            <input type="radio" name="numofreps" value="10" id="rep10" /><label for="rep10">10</label>
+            <input type="radio" name="numofreps" value="11" id="rep11" /><label for="rep11">11</label>
+            <input type="radio" name="numofreps" value="12" id="rep12" /><label for="rep12">12</label>
         </form>
 
-        <div class="row">
-            <hr>
-            <div class="col"><h1>RPE</h1></div>
-            <div class="col"><h1>% of 1RM</h1></div>
-            <div class="col"><h1>Load</h1></div>
-            <hr>
-        </div>
+        <hr />
+        <table>
+            <thead>
+                <tr>
+                    <td><h3>RPE</h3></td>
+                    <td><h3>% of 1RM</h3></td>
+                    <td><h3>Load</h3></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10</td>
+                    <td id="percentage_0"></td>
+                    <td id="load_0"></td>
+                </tr>
+                <tr>
+                    <td>9.5</td>
+                    <td id="percentage_1"></td>
+                    <td id="load_1"></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td id="percentage_2"></td>
+                    <td id="load_2"></td>
+                </tr>
+                <tr>
+                    <td>8.5</td>
+                    <td id="percentage_3"></td>
+                    <td id="load_3"></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td id="percentage_4"><d>
+                    <td id="load_4"></td>
+                </tr>
+                <tr>
+                    <td>7.5</td>
+                    <td id="percentage_5"></td>
+                    <td id="load_5"></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td id="percentage_6"></td>
+                    <td id="load_6"></td>
+                </tr>
+                <tr>
+                    <td>6.5</td>
+                    <td id="percentage_7"></td>
+                    <td id="load_7"></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td id="percentage_8"></td>
+                    <td id="load_8"></td>
+                </tr>
+            </tbody>
+        </table>
 
     </section>
 
 
-</main>
+</body>
+</html>
+
+<script src="index.js"></script>

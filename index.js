@@ -1,15 +1,3 @@
-// const express = require('express')
-// const app = express();
-// const port = 8000;
-
-// app.get('/', (req, res) => {
-  // res.send('I liek turtles')
-// });
-
-// app.listen(port, () => {
-  // console.log(`Example app listening on port ${port}!`)
-// });
-
 const rpe_table = {
     1: {
         10: 100,
@@ -145,12 +133,18 @@ const rpe_table = {
     }
 }
 
+let e1rm = 0;
+
+let changeReps = document.querySelectorAll('input[type= radio][name="numofreps"]');
+changeReps.forEach(radio => radio.addEventListener('change', () =>
+    computeTable()
+    ));
+
 
 
 function calculateE1RM() {
     document.getElementById("calculations").style.display = 'block';
 
-    let e1rm = 0;
     let weight = document.getElementById("weight").value;
     let reps = document.getElementById("reps").value;
     let rpe = document.getElementById("rpe").value;
@@ -163,18 +157,36 @@ function calculateE1RM() {
         e1rm = Math.round(weight/((100-(reps * 2.5))/100));
     }
     document.getElementById("e1rm").innerHTML = e1rm + "<a> lbs</a>";
-    computeTable(e1rm);
+    computeTable();
 
-}
+};
 
-function computeTable(e1rm) {
+function computeTable() {
+    let numofreps = 1;
+    let repform = document.getElementsByName("numofreps");
+    for (r = 0; r < repform.length; r++) {
+        if (repform[r].checked) {
+            numofreps = repform[r].value;
+        }
+    }
 
-}
+    //document.getElementById("test").innerHTML += numofreps;
+    let i = 0;
+    for (j = 10; j > 5.5; j -= 0.5) {
+        let percentstring = 'percentage_' + i;
+        let loadstring = 'load_' + i;
+
+        document.getElementById(percentstring).innerHTML = rpe_table[numofreps][j] + '%';
+        document.getElementById(loadstring).innerHTML = Math.round((rpe_table[numofreps][j] * e1rm)/ 100);
+        i++;
+    }
+};
+
 
 function clearForm(){
-document.getElementById("weight").value = "";
-document.getElementById("reps").value = "";
-document.getElementById("rpe").value = "6";
-document.getElementById("e1rm").innerHTML = "";
-document.getElementById("calculations").style.display = 'none';
-}
+    document.getElementById("weight").value = "";
+    document.getElementById("reps").value = "";
+    document.getElementById("rpe").value = "6";
+    document.getElementById("e1rm").innerHTML = "";
+    document.getElementById("calculations").style.display = 'none';
+};
